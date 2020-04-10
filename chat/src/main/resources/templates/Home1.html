@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home -> 1</title>
+</head>
+<body>
+
+<h1 align="center">欢迎！！！</h1>
+<button type="button" onclick="send()">发送消息</button>
+
+<script type="text/javascript" src="../static/jquery-3.4.1.js"></script>
+<script>
+
+    // Websocket 链接地址
+    const wssUri = "ws://127.0.0.1:8090/ws/chat?req=1";
+    const wsClient = new WebSocket(wssUri);
+
+    $(function () {
+
+        wsClient.onopen = function () {
+            // 成功连接到服务器
+            console.log("成功连接到服务器");
+        }
+
+        wsClient.onclose = function (e) {
+            console.log("连接已关闭 (" + e.code + ")");
+        }
+
+        wsClient.onmessage = function (e) {
+
+            // 服务器发送通知
+            // 开始处理
+            console.log("收到消息: " + e.data);
+        }
+    })
+
+    function send() {
+        // 发送消息
+        wsClient.send('{"receiveId": 2, "message": "home2 你好呀"}');
+    }
+
+</script>
+</body>
+</html>

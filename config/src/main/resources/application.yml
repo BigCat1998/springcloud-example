@@ -1,0 +1,49 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/ZhangJiaHao_1998/config
+          search-paths: /config-repo
+          username: 209127081@qq.com
+          password:
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  security:
+    user:
+      name: config
+      password: config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+      base-path: /actuator
+    jmx:
+      exposure:
+        include: health, info, hystrix.stream, refresh
+  server:
+    port: 18030

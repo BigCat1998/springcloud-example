@@ -1,0 +1,61 @@
+server:
+  port: 9040
+
+# Websocket Configuration
+ws:
+  port: 8090
+  host: 127.0.0.1
+  path: /ws/chat
+
+spring:
+  application:
+    name: chat
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/user?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+tx-lcn:
+  springcloud:
+    loadbalance:
+      enabled: true
+
+ribbon:
+  MaxAutoRetriesNextServer: 0
+
+logging:
+  level:
+    com:
+      codingapi:
+        txlcn: DEBUG
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, info, hystrix.stream
+      base-path: /actuator
+
