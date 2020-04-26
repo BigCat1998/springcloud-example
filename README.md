@@ -20,7 +20,7 @@
 
 ### 说明
     1，JDK使用的是11，idea自带JDK。如果你用的是2019版本之上的idea，可以直接clone就能跑项目了。
-    2，SpringBoot使用的2.2.2.RELEASE(目前最新版)。
+    2，SpringBoot使用的2.2.2.RELEASE。
     3，SpringCloud使用Hoxton.SR1。
     4，分布式事务使用txlcn框架实现。
     5，分布式锁使用Redisson框架实现。redis介绍在redis.md
