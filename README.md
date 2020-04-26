@@ -21,13 +21,12 @@
 ### 说明
     1，JDK使用的是11，idea自带JDK。如果你用的是2019版本之上的idea，可以直接clone就能跑项目了。
     2，SpringBoot使用的2.2.2.RELEASE。
-    3，SpringCloud使用Hoxton.SR1。
-    4，分布式事务使用txlcn框架实现。
-    5，分布式锁使用Redisson框架实现。redis介绍在redis.md
-    6，数据库最好使用5.6及以上版本。mysql库表介绍在mysql.md。
-    7，本地安装rabbitmq，安装教程在rabbitmq.md。
-    8，zipkin配置，zipkin.md。
-    9，聊天通讯模块介绍，这个模块是独立的目前基本单对单聊天，群聊，聊天记录保存数据库，用户上线提示未读消息。数据库一致。
+    3，分布式事务使用txlcn框架实现。
+    4，分布式锁使用Redisson框架实现。redis介绍在redis.md
+    5，数据库最好使用5.6及以上版本。mysql库表介绍在mysql.md。
+    6，本地安装rabbitmq，安装教程在rabbitmq.md。
+    7，zipkin配置，zipkin.md。
+    8，聊天通讯模块介绍，这个模块是独立的目前基本单对单聊天，群聊，聊天记录保存数据库，用户上线提示未读消息。数据库一致。
     
 ### 能用到的链接
     1，eureka可视化界面 http://localhost:8761
